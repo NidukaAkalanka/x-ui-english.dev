@@ -3,12 +3,12 @@ module x-ui
 go 1.16
 
 require (
-	github.com/BurntSushi/toml v0.3.1
+	github.com/BurntSushi/toml v1.2.1
 	github.com/StackExchange/wmi v0.0.0-20210224194228-fe8f1750fd46 // indirect
 	github.com/Workiva/go-datastructures v1.0.53
 	github.com/gin-contrib/sessions v0.0.3
 	github.com/gin-gonic/gin v1.7.1
-	github.com/go-cmd/cmd v1.4.1 // indirect
+	github.com/go-cmd/cmd v1.4.1
 	github.com/go-ole/go-ole v1.2.5 // indirect
 	github.com/go-telegram-bot-api/telegram-bot-api/v5 v5.5.1
 	github.com/nicksnyder/go-i18n/v2 v2.1.2
