@@ -177,7 +177,8 @@ install_xui() {
         read -rp "Please enter the option [y/n, default n]: " yn
         if [[ $yn =~ "Y"|"y" ]]; then
             cd
-            mv /etc/x-ui/x-ui.db /etc/x-ui.db.bak # DBackup.oldtmv
+            mv /etc/x-ui/x-ui.db /etc/x-ui-english.db.bak # Backing up Chinese X-UI db (if any)
+            mv /etc/x-ui-english/x-ui-english.db /etc/x-ui-english.db.bak # Backing up English X-UI db 
             systemctl stop x-ui
             systemctl disable x-ui
             rm /etc/systemd/system/x-ui.service -f
@@ -192,25 +193,26 @@ install_xui() {
         fi
     fi
     
+    cd
+    rm /etc/x-ui-english/x-ui-english.db -rf # Deleting empty new db
+    mv /etc/x-ui-english.db.bak /etc/x-ui-english/x-ui-english.db # Bringing the backed up db
     systemctl stop x-ui >/dev/null 2>&1
     
     install_base
     download_xui $1
     panel_config
     
-    cd
-    rm /etc/x-ui/x-ui.db -rf # DBackup.newdbdel
-    mv /etc/x-ui.db.bak /etc/x-ui/x-ui.db # DBackup.oldmvback
 
     systemctl daemon-reload
     systemctl enable x-ui >/dev/null 2>&1
     systemctl start x-ui
+    systemctl restart x-ui
     
     cd $cur_dir
     rm -f install.sh
-    green "X-UI v${last_version} Installation is Completed, The Panel has been Started"
+    green "X-UI v${last_version} Installation / Upgrade is Completed, The Panel has been Started"
     echo -e ""
-    echo -e "${GREEN} -------------------------------------------------------------------- ${PLAIN}"
+    echo -e "${GREEN} --------------------------------------------------------------------  ${PLAIN}"
     echo -e "${GREEN}   __   __           _    _ _____    ______             _ _     _      ${PLAIN}"
     echo -e "${GREEN}   \ \ / /          | |  | |_   _|  |  ____|           | (_)   | |     ${PLAIN}"
     echo -e "${GREEN}    \ V /   ______  | |  | | | |    | |__   _ __   __ _| |_ ___| |__   ${PLAIN}"
@@ -243,6 +245,7 @@ install_xui() {
     echo -e "vaxilu            - https://github.com/vaxilu" 
     echo -e "taffychan         - https://github.com/taffychan"  
     echo -e "Hossin Asaadi     - https://github.com/hossinasaadi"
+    echo -e "Yu FranzKafka     - https://github.com/FranzKafkaYu"
     echo -e "Niduka Akalanka   - https://github.com/NidukaAkalanka"
     echo -e "--------------------------------------------------------------------------------"
     show_login_info
