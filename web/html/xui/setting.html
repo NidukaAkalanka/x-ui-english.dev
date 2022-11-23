@@ -44,7 +44,29 @@
                                 <setting-list-item type="text" title='{{ i18n "pages.setting.publicKeyPath"}}' desc='{{ i18n "pages.setting.publicKeyPathDesc"}}' v-model="allSetting.webCertFile"></setting-list-item>
                                 <setting-list-item type="text" title='{{ i18n "pages.setting.privateKeyPath"}}' desc='{{ i18n "pages.setting.privateKeyPathDesc"}}' v-model="allSetting.webKeyFile"></setting-list-item>
                                 <setting-list-item type="text" title='{{ i18n "pages.setting.panelUrlPath"}}' desc='{{ i18n "pages.setting.panelUrlPathDesc"}}' v-model="allSetting.webBasePath"></setting-list-item>
-                               
+                                <a-list-item>
+                                    <a-row  style="padding: 20px">
+                                        <a-col :lg="24" :xl="12">
+                                            <a-list-item-meta title="Language"/>
+                                        </a-col>
+
+                                        <a-col :lg="24" :xl="12">
+                                            <temlate>
+                                                <a-select
+                                                        ref="selectLang"
+                                                        v-model="lang"
+                                                        @change="setLang(lang)"
+                                                        style="width: 100%"
+                                                >
+                                                    <a-select-option  :value="l.value" label="Persian" v-for="l in supportLangs" >
+                                                        <span role="img" aria-label="l.name" v-text="l.icon"></span>
+                                                        &nbsp;&nbsp;<span v-text="l.name"></span>
+                                                    </a-select-option>
+                                                </a-select>
+                                            </temlate>
+                                        </a-col>
+                                    </a-row>
+                                </a-list-item>                               
                             </a-list>
                         </a-tab-pane>
                         <a-tab-pane key="2" tab='{{ i18n "pages.setting.userSetting"}}'>
