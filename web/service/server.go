@@ -202,15 +202,15 @@ func (s *ServerService) downloadXRay(version string) (string, error) {
 	arch := runtime.GOARCH
 
 	switch osName {
-	case "darwin":
-		osName = "macos"
+	case "linux":
+		osName = "linux"
 	}
 
 	switch arch {
 	case "amd64":
-		arch = "64"
+		arch = "amd64"
 	case "arm64":
-		arch = "arm64-v8a"
+		arch = "arm64"
 	}
 
 	fileName := fmt.Sprintf("Xray-%s-%s.zip", osName, arch)
