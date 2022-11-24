@@ -209,7 +209,7 @@ set_port() {
             fi
         done
         /usr/local/x-ui/x-ui setting -port ${port} >/dev/null 2>&1
-        echo -e "After the setting port is complete. Use the newly set port ${${GREEN}} ${port} ${PLAIN} to access the panel"
+        echo -e "After the setting port is complete. Access the panel using the newly set port: ${GREEN} ${port} ${PLAIN}"
         confirm_restart
     fi
 }
