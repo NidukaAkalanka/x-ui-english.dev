@@ -1,6 +1,6 @@
-"username" = "Username"
-"password" = "Password"
-"login" = "LOGIN"
+"username" = "کدملی"
+"password" = "کلمه عبور"
+"login" = "ورود"
 "confirm" = "Confirm"
 "cancel" = "Cancel"
 "close" = "Close"
@@ -50,7 +50,7 @@
 "link" = "Other"
 
 [pages.login]
-"title" = "X-UI ENGLISH LOGIN"
+"title" = "سامانه حضور غیاب شاهد"
 "loginAgain" = "The login session has expired, please log in again"
 
 [pages.login.toasts]
